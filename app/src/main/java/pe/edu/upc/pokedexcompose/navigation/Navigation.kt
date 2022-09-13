@@ -15,7 +15,9 @@ fun Navigation(pokemons: List<Pokemon>) {
 
     NavHost(navController = navController, startDestination = Routes.PokemonList.route) {
         composable(Routes.PokemonList.route) {
-            MyApp(pokemons)
+            MyApp(pokemons) {
+                navController.navigate("${Routes.PokemonDetails.route}/$it")
+            }
         }
 
         composable(Routes.PokemonDetails.routeWithArgument,
@@ -24,7 +26,7 @@ fun Navigation(pokemons: List<Pokemon>) {
             })
         ) {
             navBackStackEntry ->
-            val position = navBackStackEntry?.arguments?.getInt(Routes.PokemonDetails.argument,1) as Int
+            val position = navBackStackEntry.arguments?.getInt(Routes.PokemonDetails.argument,1) as Int
             val pokemon: Pokemon
             //Pokemon(pokemon)
 
