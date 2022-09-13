@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.satoshun.compose.palette:coil:0.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2699cf4fe41c0cdab002461a9b84710d/transformed/coil-0.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2699cf4fe41c0cdab002461a9b84710d/transformed/coil-0.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2699cf4fe41c0cdab002461a9b84710d/transformed/coil-0.0.2/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.satoshun.compose.palette/coil/0.0.2/fe91bb3e680b4a2f24c15167c02afaec52ce87d5/coil-0.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.satoshun.compose.palette/coil/0.0.2/10110d5e70943f4e3ecbcac3f79332ea3e1ea59d/coil-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
