@@ -6,29 +6,36 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import pe.edu.upc.pokedexcompose.data.models.Pokemon
+import pe.edu.upc.pokedexcompose.ui.pokemondetails.PokemonViewModel
 import pe.edu.upc.pokedexcompose.ui.pokemonlist.MyApp
+import pe.edu.upc.pokedexcompose.ui.pokemonlist.PokemonListViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import pe.edu.upc.pokedexcompose.ui.pokemondetails.PokemonDetails
 
 @Composable
-fun Navigation(pokemons: List<Pokemon>) {
+fun Navigation() {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = Routes.PokemonList.route) {
         composable(Routes.PokemonList.route) {
-            MyApp(pokemons) {
+
+            val pokemonListViewModel: PokemonListViewModel = viewModel()
+            MyApp(pokemonListViewModel) {
                 navController.navigate("${Routes.PokemonDetails.route}/$it")
             }
         }
 
-        composable(Routes.PokemonDetails.routeWithArgument,
+        composable(
+            Routes.PokemonDetails.routeWithArgument,
             arguments = listOf(navArgument(Routes.PokemonDetails.argument) {
                 type = NavType.IntType
             })
-        ) {
-            navBackStackEntry ->
-            val position = navBackStackEntry.arguments?.getInt(Routes.PokemonDetails.argument,1) as Int
-            val pokemon: Pokemon
-            //Pokemon(pokemon)
+        ) { navBackStackEntry ->
+            val position =
+                navBackStackEntry.arguments?.getInt(Routes.PokemonDetails.argument, 1) as Int
+            val pokemonViewModel: PokemonViewModel = viewModel()
+            pokemonViewModel.getPokemon(position)
+            PokemonDetails(pokemonViewModel)
 
         }
 

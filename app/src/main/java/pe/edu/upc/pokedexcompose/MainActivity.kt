@@ -28,31 +28,16 @@ import retrofit2.Response
 
 class MainActivity : ComponentActivity() {
 
-    var pokemons by mutableStateOf(listOf<Pokemon>())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadItems()
         setContent {
             PokedexComposeTheme {
-                Navigation(pokemons)
+                Navigation()
             }
         }
     }
 
-    private fun loadItems() {
-        val pokemonInterface = ApiClient.build()
-        val getPokemons = pokemonInterface?.getPokemons()
 
-        getPokemons?.enqueue(object : Callback<ApiResponse> {
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                pokemons = response.body()!!.results
-            }
-
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                Log.d("MainActivity", t.toString())
-            }
-        })
-    }
 }
 
 

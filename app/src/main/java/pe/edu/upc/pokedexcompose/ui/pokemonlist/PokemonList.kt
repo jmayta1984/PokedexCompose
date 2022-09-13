@@ -9,6 +9,8 @@ import androidx.compose.material.Card
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
@@ -17,19 +19,22 @@ import pe.edu.upc.pokedexcompose.data.models.Pokemon
 
 @Composable
 fun MyApp(
-    pokemons: List<Pokemon>,
+    viewModel: PokemonListViewModel,
     selectPokemon: (Int) -> Unit
 ) {
     Scaffold {
-        PokemonList(pokemons, selectPokemon)
+        PokemonList(viewModel, selectPokemon)
     }
 }
 
 @Composable
 fun PokemonList(
-    pokemons: List<Pokemon>,
+    viewModel: PokemonListViewModel,
     selectPokemon: (Int) -> Unit
 ) {
+
+    val pokemons: List<Pokemon> by viewModel.pokemons.observeAsState(listOf())
+
     LazyColumn {
         items(pokemons) { pokemon ->
             PokemonRow(pokemon, selectPokemon)
@@ -42,27 +47,33 @@ fun PokemonRow(
     pokemon: Pokemon,
     selectPokemon: (Int) -> Unit
 ) {
+    val numberPosition = pokemon.url.indexOf('2')
+    val positionString = pokemon.url.filter { it.isDigit() }
+    val position = Integer.parseInt(positionString)
+
     Card(
         modifier = Modifier
             .padding(4.dp)
             .fillMaxWidth()
             .clickable {
-                selectPokemon(1)
+                selectPokemon(position)
             },
         elevation = 2.dp
     ) {
         Column {
             Text(text = pokemon.name)
             Spacer(modifier = Modifier.height(8.dp))
-            PokemonImage()
+            PokemonImage(pokemon)
         }
     }
 }
 
 @Composable
-fun PokemonImage() {
+fun PokemonImage(pokemon: Pokemon) {
+    val positionString = pokemon.url.filter { it.isDigit() }
+
     Image(
-        painter = rememberImagePainter("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"),
+        painter = rememberImagePainter("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${positionString}.png"),
         contentDescription = null,
         modifier = Modifier.size(64.dp),
         contentScale = ContentScale.Crop

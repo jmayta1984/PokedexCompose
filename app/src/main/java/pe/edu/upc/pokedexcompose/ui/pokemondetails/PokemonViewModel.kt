@@ -12,28 +12,31 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PokemonViewModel: ViewModel() {
+class PokemonViewModel : ViewModel() {
 
     val pokemonInterface = ApiClient.build()
 
     private var _pokemon = MutableLiveData<Pokemon>()
     val pokemon get() = _pokemon
 
-    fun getPokemonDetail(position: Int){
+    fun getPokemon(position: Int) {
         viewModelScope.launch {
             try {
                 val getPokemon = pokemonInterface?.getPokemonDetail(position)
-                    getPokemon?.enqueue(object: Callback<Pokemon>{
-                        override fun onResponse(call: Call<Pokemon>, response: Response<Pokemon>) {
-                            _pokemon.postValue(response.body())
-                        }
+                getPokemon?.enqueue(object : Callback<Pokemon> {
 
-                        override fun onFailure(call: Call<Pokemon>, t: Throwable) {
-                            Log.d("MainActivity", t.toString())
-                        }
-                    })
+                    override fun onResponse(
+                        call: Call<Pokemon>,
+                        response: Response<Pokemon>
+                    ) {
+                        pokemon.postValue(response.body())
+                    }
 
-            } catch (e: Exception){
+                    override fun onFailure(call: Call<Pokemon>, t: Throwable) {
+                        Log.d("MainActivity", t.toString())
+                    }
+                })
+            } catch (e: Exception) {
                 Log.e("ViewModel: Get Pokemons", e.toString())
             }
         }
