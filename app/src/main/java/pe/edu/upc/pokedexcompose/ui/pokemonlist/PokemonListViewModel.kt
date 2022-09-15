@@ -22,6 +22,14 @@ class PokemonListViewModel : ViewModel() {
         getPokemons()
     }
 
+    fun insert(pokemon: Pokemon){
+
+    }
+
+    fun delete(pokemon: Pokemon){
+
+    }
+
     fun getPokemons() {
         viewModelScope.launch {
             try {
