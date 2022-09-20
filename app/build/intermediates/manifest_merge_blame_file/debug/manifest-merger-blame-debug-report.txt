@@ -74,13 +74,13 @@
 42-->[androidx.compose.ui:ui-test-manifest:1.1.0-beta01] /Users/profesores/.gradle/caches/transforms-3/7305440247432c3166e67f5b8bb7fdad/transformed/ui-test-manifest-1.1.0-beta01/AndroidManifest.xml:27:13-36
 43
 44        <service
-44-->[androidx.room:room-runtime:2.4.3] /Users/profesores/.gradle/caches/transforms-3/42548d24101d07d4ccb170036ac6f699/transformed/room-runtime-2.4.3/AndroidManifest.xml:25:9-28:40
+44-->[androidx.room:room-runtime:2.3.0] /Users/profesores/.gradle/caches/transforms-3/1306f03411ea9a2f33bd0aa90cba6893/transformed/room-runtime-2.3.0/AndroidManifest.xml:25:9-28:40
 45            android:name="androidx.room.MultiInstanceInvalidationService"
-45-->[androidx.room:room-runtime:2.4.3] /Users/profesores/.gradle/caches/transforms-3/42548d24101d07d4ccb170036ac6f699/transformed/room-runtime-2.4.3/AndroidManifest.xml:26:13-74
+45-->[androidx.room:room-runtime:2.3.0] /Users/profesores/.gradle/caches/transforms-3/1306f03411ea9a2f33bd0aa90cba6893/transformed/room-runtime-2.3.0/AndroidManifest.xml:26:13-74
 46            android:directBootAware="true"
-46-->[androidx.room:room-runtime:2.4.3] /Users/profesores/.gradle/caches/transforms-3/42548d24101d07d4ccb170036ac6f699/transformed/room-runtime-2.4.3/AndroidManifest.xml:27:13-43
+46-->[androidx.room:room-runtime:2.3.0] /Users/profesores/.gradle/caches/transforms-3/1306f03411ea9a2f33bd0aa90cba6893/transformed/room-runtime-2.3.0/AndroidManifest.xml:27:13-43
 47            android:exported="false" />
-47-->[androidx.room:room-runtime:2.4.3] /Users/profesores/.gradle/caches/transforms-3/42548d24101d07d4ccb170036ac6f699/transformed/room-runtime-2.4.3/AndroidManifest.xml:28:13-37
+47-->[androidx.room:room-runtime:2.3.0] /Users/profesores/.gradle/caches/transforms-3/1306f03411ea9a2f33bd0aa90cba6893/transformed/room-runtime-2.3.0/AndroidManifest.xml:28:13-37
 48
 49        <provider
 49-->[androidx.profileinstaller:profileinstaller:1.1.0-beta01] /Users/profesores/.gradle/caches/transforms-3/bba4dd70b1a8edf1dafbb430477cdb5c/transformed/profileinstaller-1.1.0-beta01/AndroidManifest.xml:26:9-34:20

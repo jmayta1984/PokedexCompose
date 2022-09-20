@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "pe.edu.upc.pokedexcompose.app-mergeDebugResources-50:/values-my/values-my.xml",
+            "outputFile": "pe.edu.upc.pokedexcompose.app-mergeDebugResources-48:/values-my/values-my.xml",
             "map": [
                 {
                     "source": "/Users/profesores/.gradle/caches/transforms-3/133b3b150fe94626b9c8cf5fb43fb7d7/transformed/ui-1.1.0-beta01/res/values-my/values-my.xml",

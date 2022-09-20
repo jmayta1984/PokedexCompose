@@ -39,9 +39,9 @@ fun PokemonList(
             PokemonRow(
                 pokemon,
                 selectPokemon,
-                deletePokemon = { viewModel.insert(pokemon)},
-                insertPokemon = { viewModel.delete(pokemon)}
-                )
+                { viewModel.deletePokemon(pokemon) },
+                { viewModel.insertPokemon(pokemon) }
+            )
         }
     }
 }
@@ -51,7 +51,7 @@ fun PokemonRow(
     pokemon: Pokemon,
     selectPokemon: (Int) -> Unit,
     deletePokemon: () -> Unit,
-    insertPokemon:() -> Unit
+    insertPokemon: () -> Unit
 ) {
     val positionString = pokemon.url.filter { it.isDigit() }
     val position = Integer.parseInt(positionString)
@@ -68,7 +68,7 @@ fun PokemonRow(
             },
         elevation = 2.dp
     ) {
-        Row{
+        Row {
             Column(modifier = Modifier.weight(7f)) {
                 Text(text = pokemon.name)
                 Spacer(modifier = Modifier.height(8.dp))
@@ -77,8 +77,7 @@ fun PokemonRow(
             IconButton(
                 modifier = Modifier.weight(1f),
                 onClick = {
-
-                    if (favorite){
+                    if (favorite) {
                         deletePokemon()
                     } else {
                         insertPokemon()
@@ -89,7 +88,7 @@ fun PokemonRow(
                 Icon(
                     Icons.Filled.Favorite,
                     null,
-                    tint = if (favorite ) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
+                    tint = if (favorite) MaterialTheme.colors.primary else MaterialTheme.colors.onSurface
                 )
 
             }

@@ -1,13 +1,25 @@
 package pe.edu.upc.pokedexcompose.data.models
 
-class Pokemon (
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity
+data class Pokemon(
+
+    @PrimaryKey
     val name: String,
 
-    val url:String,
+    @ColumnInfo
+    val url: String,
 
+    @ColumnInfo
     val height: Int,
 
-    val weight: Int){
-    constructor(): this("","",1,1)
+    @ColumnInfo
+    val weight: Int,
+
+
+) {
+    constructor() : this("", "", 1, 1)
 }
