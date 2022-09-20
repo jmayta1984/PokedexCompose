@@ -41,6 +41,11 @@
             android:name="androidx.activity.ComponentActivity"
             android:exported="true" />
 
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="pe.edu.upc.pokedexcompose.androidx-startup"
