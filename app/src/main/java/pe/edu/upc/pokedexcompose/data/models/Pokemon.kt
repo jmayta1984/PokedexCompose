@@ -21,10 +21,12 @@ data class Pokemon(
     val weight: Int,
 
 
-
-) {
-    constructor() : this("", "", 1, 1)
+    ) {
+    constructor() : this("", "", 0, 0)
 
     @Ignore
     var favorite: Boolean = false
+
+    @Ignore
+    var id: Int = 0
 }

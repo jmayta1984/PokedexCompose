@@ -53,8 +53,7 @@ fun PokemonRow(
     deletePokemon: () -> Unit,
     insertPokemon: () -> Unit
 ) {
-    val positionString = pokemon.url.filter { it.isDigit() }
-    val position = Integer.parseInt(positionString)
+    val position = Integer.parseInt(pokemon.url.replaceFirst("2", "a").filter { it.isDigit() })
 
     var favorite by remember {
         mutableStateOf(false)
