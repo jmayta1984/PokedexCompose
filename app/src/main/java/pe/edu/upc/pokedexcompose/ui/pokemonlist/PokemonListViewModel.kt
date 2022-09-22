@@ -25,12 +25,16 @@ class PokemonListViewModel(application: Application) : AndroidViewModel(applicat
         getPokemons()
     }
 
-    fun insertPokemon(pokemon: Pokemon){
+    fun insertPokemon(pokemon: Pokemon) {
         pokemonDao.insertPokemon(pokemon)
     }
 
-    fun deletePokemon(pokemon: Pokemon){
+    fun deletePokemon(pokemon: Pokemon) {
         pokemonDao.deletePokemon(pokemon)
+    }
+
+    fun updatePokemon(pokemon: Pokemon) {
+        pokemon.favorite = (pokemonDao.fetchByName(pokemon.name) != null)
     }
 
     fun getPokemons() {
@@ -43,6 +47,11 @@ class PokemonListViewModel(application: Application) : AndroidViewModel(applicat
                         call: Call<ApiResponse>,
                         response: Response<ApiResponse>
                     ) {
+
+                        for (pokemon in response.body()!!.results) {
+                            updatePokemon(pokemon)
+                        }
+
                         pokemons.postValue(response.body()!!.results)
                     }
 

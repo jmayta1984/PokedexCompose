@@ -59,6 +59,8 @@ fun PokemonRow(
     var favorite by remember {
         mutableStateOf(false)
     }
+    favorite = pokemon.favorite
+
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -84,6 +86,7 @@ fun PokemonRow(
                     }
 
                     favorite = !favorite
+                    pokemon.favorite = favorite
                 }) {
                 Icon(
                     Icons.Filled.Favorite,
@@ -99,12 +102,14 @@ fun PokemonRow(
 
 @Composable
 fun PokemonImage(pokemon: Pokemon) {
-    val positionString = pokemon.url.filter { it.isDigit() }
+
+    val positionString = pokemon.url.replaceFirst("2", "a").filter { it.isDigit() }
+
 
     Image(
         painter = rememberImagePainter("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${positionString}.png"),
         contentDescription = null,
-        modifier = Modifier.size(64.dp),
+        modifier = Modifier.height(128.dp),
         contentScale = ContentScale.Crop
     )
 }

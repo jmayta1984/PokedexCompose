@@ -20,6 +20,11 @@ data class Pokemon(
     @ColumnInfo
     val weight: Int,
 
+
+
 ) {
     constructor() : this("", "", 1, 1)
+
+    @Ignore
+    var favorite: Boolean = false
 }
